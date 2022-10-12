@@ -1,0 +1,32 @@
+package com.newpackage;
+
+
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class NEwClass {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\user\\eclipse-workspace\\newselenium project\\resource\\chromedriver.exe");
+
+		ChromeDriver driver = new ChromeDriver();
+		driver.get("https://letcode.in");
+		driver.manage().window().maximize();
+		Thread.sleep(3000);
+		driver.findElementByXPath("//*[@id=\"testing\"]").click();
+		driver.findElementByXPath("/html/body/app-root/app-test-site/section[2]/div/div/div/div[1]/app-menu/div/footer/a").click();
+        driver.findElementById("fullName").sendKeys("pradeepkumar");
+        driver.findElementById("join").sendKeys(" person", Keys.TAB);
+        String getvalue= driver.findElementById("getMe").getAttribute("value");
+        System.out.println(getvalue);
+        driver.findElementById("clearMe").clear();
+        boolean noeditvalue = driver.findElementById("noEdit").isEnabled();
+        System.out.println(noeditvalue);
+        boolean readonly = driver.findElementById("dontwrite").isEnabled();
+        System.out.println(readonly);
+        driver.quit();
+        
+	}
+
+}
