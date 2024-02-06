@@ -1,0 +1,34 @@
+package Test1;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class democlass {
+
+	public static void main(String[] args) throws InterruptedException {
+
+		WebDriver driver = new ChromeDriver();
+
+		driver.get("https://revphpe.djaxbidder.com/ConvrsusUI/deliveryad/demo123.php");
+		WebElement click = driver.findElement(By.xpath("/html/body/a"));
+		
+		Set<String> allWindowHandles = driver.getWindowHandles();
+		List<String> list = new ArrayList<String>(allWindowHandles);
+
+				for (int i = 1; i <= 10; i++) {
+					click.click();
+			System.out.println(i+"click");
+		
+		}
+			driver.quit();
+	}
+
+}
+
+
